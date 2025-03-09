@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useContext } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import "../styles/style-card.css";
 import { useParams } from "react-router-dom";
 import { Col, Container, Form, ListGroup, Row } from "reactstrap";
@@ -17,8 +17,8 @@ const TourDetails = () => {
 
   const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/${id}`);
   const {
-    photo,
     reviews,
+    photo,
     title,
     address,
     city,
@@ -88,7 +88,7 @@ const TourDetails = () => {
             <Row>
               <Col lg="8">
                 <div className="tour__content">
-                  <img src={photo} alt="" />
+                <img src={process.env.PUBLIC_URL + photo} alt={title} />
                 </div>
 
                 <div className="tour__info">
